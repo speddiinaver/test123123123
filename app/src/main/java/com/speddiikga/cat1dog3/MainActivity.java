@@ -27,7 +27,7 @@ class MainActivity extends Activity {
     TextView textView;
     TextView textView2;
     Uri imageUri;
-    //String url ="http://127.0.0.1:8000/blog/catdogapi/";
+    String url ="http://127.0.0.1:8000/blog/catdogapi/";
     private static final int PICK_IMAGE = 100;
     @SuppressLint({"WrongThread", "SetTextI18n"})
     @Override
@@ -37,7 +37,7 @@ class MainActivity extends Activity {
         button.setOnClickListener(v -> {
             Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
             startActivityForResult(gallery, PICK_IMAGE);
-            //final TextView textView2 = (TextView) findViewById(R.id.text2);
+            final TextView textView2 = (TextView) findViewById(R.id.text2);
         });}
 
 
@@ -46,8 +46,8 @@ class MainActivity extends Activity {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK && requestCode == PICK_IMAGE){
             imageUri = data.getData();
-            imageView.setImageURI(imageUri);}}}
-            /*ByteArrayOutputStream bas = new ByteArrayOutputStream();
+            imageView.setImageURI(imageUri);
+            ByteArrayOutputStream bas = new ByteArrayOutputStream();
             Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.id.imageView);
             bitmap.compress(Bitmap.CompressFormat.JPEG, 10, bas);
             byte[] imageBytes = bas.toByteArray();
@@ -102,4 +102,4 @@ class MainActivity extends Activity {
             return imageLoader;
         }
     }
-}*/
+}
